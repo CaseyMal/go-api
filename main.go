@@ -7,7 +7,7 @@ import (
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	resp := map[string]string{"message": "Hello from Go API!"}
+	resp := map[string]string{"message": "Making a Change!"}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(resp)
 }
