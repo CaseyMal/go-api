@@ -31,7 +31,7 @@ jobs:
 
       # Add push to Docker Hub/GHCR or deployment step here if needed
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.WRITEPAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push Docker Image
         run: |
