@@ -36,6 +36,6 @@ jobs:
       - name: Push Docker Image
         run: |
           LOWERCASE_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          IMAGE_NAME=ghcr.io/$LOWERCASE_OWNER/go-api
+          IMAGE_NAME=ghcr.io/caseymal/go-api
           docker tag go-api $IMAGE_NAME:latest
           docker push $IMAGE_NAME:latest
