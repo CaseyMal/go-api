@@ -24,6 +24,7 @@ jobs:
       run: |
         IMAGE_NAME=caseymal/go-api
         IMAGE_TAG=${GITHUB_SHA}
+        echo "Commit SHA is $GITHUB_SHA"
         docker build -t $IMAGE_NAME:$IMAGE_TAG .
         docker push $IMAGE_NAME:$IMAGE_TAG
 
