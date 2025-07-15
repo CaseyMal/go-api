@@ -25,11 +25,11 @@ jobs:
         docker push $IMAGE_NAME:$IMAGE_TAG
 
     - name: Set up Kubeconfig
-      run: |
-        echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > kubeconfig
-        export KUBECONFIG=$PWD/kubeconfig
+      run: echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > kubeconfig
 
     - name: Update Kubernetes Deployment with New Image
+      env:
+        KUBECONFIG: ${{ github.workspace }}/kubeconfig
       run: |
         IMAGE_NAME=ghcr.io/caseymal/go-api:${GITHUB_SHA}
         kubectl set image deployment/go-api go-api=$IMAGE_NAME -n default
